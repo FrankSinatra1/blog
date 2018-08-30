@@ -1,6 +1,6 @@
 <header class="header flex">
     <div class="logo">
-        <a href="">Блог важных новостей</a>
+        <a href="blog.php">Блог важных новостей</a>
     </div>
     <div class="menuList">
         <ul class="flex">

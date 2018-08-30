@@ -5,7 +5,7 @@
 
 
 <div class="wrapper-adminpanel flex">
-	<form action="components/addpost.php" id="addForm-admin" method="post">
+	<form action="components/addpost.php" enctype="multipart/form-data" id="addForm-admin" method="post">
 		<div class="wpap-input-admin">
 			<h2>Заголовок</h2>
 			<input type="text" class="inputFocus" placeholder="Заголовок" name="title">
@@ -17,17 +17,21 @@
 		<div class="wpap-input-admin">
 			<h2>Категория</h2>
 			<select name="categories" id="">
-				<option value="Политика">Политика</option>
-				<option value="Еда">Еда</option>
-				<option value="Музыка">Музыка</option>
-				<option value="Спорт">Спорт</option>
-				<option value="Технологии">Технологии</option>
-				<option value="Ого как важно">Ого как важно</option>
+				<option value="1">Политика</option>
+				<option value="2">Еда</option>
+				<option value="3">Музыка</option>
+				<option value="4">Спорт</option>
+				<option value="5">Технологии</option>
+				<option value="6">Ого как важно</option>
 			</select>
 		</div>
 		<div class="wpap-input-admin">
 			<h2>Автор</h2>
 			<input type="text" class="inputFocus" placeholder="Автор" name="author">
+		</div>
+		<div class="wrpap-input-img">
+			<input type="text" name="etc" value="">
+			<input name="imgfile" type="file" />
 		</div>
 		<button type="submit" class="button">
 			Добавить статью

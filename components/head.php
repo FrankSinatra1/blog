@@ -10,6 +10,7 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>

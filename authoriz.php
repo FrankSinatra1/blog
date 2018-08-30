@@ -5,15 +5,14 @@
 
 <div class="wrapper-form">
 	<div class="popup childPopup">
-		<h2>Регистрация</h2>
+		<h2>Авторизация</h2>
 		<p>Мы свяжемся с вами в ближайшее время.</p>
-		<form action="components/reg.php" method="post" id="form_formPageIndex">
+		<form action="components/auth.php" method="post" id="">
 			<input type="text" class="inputFocus" placeholder="Имя" required="" name="name" id="name">
-			<input type="text" class="inputFocus" required="" name="phone" placeholder="Номер телефона" id="phone">
 			<input type="email" class="inputFocus" placeholder="Email" required="" name="email" id="email">
-			<button type="submit" name="button" class="button buttonreg">Зарегистрироваться</button>
+			<button type="submit" name="button" class="button">Авторизоваться</button>
 		</form>
-		<a href="authoriz.php">Авторизоватья</a>
+		<a href="index.php">Регистрация</a>
 	</div>
 </div>
 

@@ -1,4 +1,7 @@
 <?php
+	require_once "bd/connection.php";
+	$categories = $conn->query('SELECT * FROM categories');
+	$dayposts = $conn->query("SELECT * FROM posts WHERE id ORDER BY view DESC LIMIT 0, 9");
 	require_once "components/head.php";
 	require_once "components/header.php";
 ?>
@@ -20,140 +23,63 @@
 			</form>
 		</div>
 		<div class="wrapperNewsDay__main">
-			<h3>Темы дня</h3>
+			<div class="tabs-posts flex">
+				<a href="" class="active">Популярыне темы</a>
+				<a href="">Темы дня</a>
+			</div>
+			<div class="wrapperNewsDay__main-items flex active">
+				<?php foreach ($dayposts->fetchAll() as $daypost) {?>
+					<?php 
+						$posts = $conn->query('SELECT * FROM posts WHERE id = "'.$daypost['id'].'"');
+		    		?>
+		    		<?php foreach($posts->fetchAll() as $post){?>
+						<a href='<?php echo "post.php?id=".$post['id']; ?>' class="wrapperNewsDay__main-item flex">
+							<div class="date-publish">
+								<p><?php echo $post['datetime'] ?></p>
+							</div>
+							<div class="wrapperNewsDay-title">
+								<p><?php $mess = mb_substr($post['title'], 0, 60, 'UTF-8') . '...'; echo $mess ?></p>
+							</div>
+							<div class="author">
+								<p><?php echo $post['author'] ?></p>
+							</div>
+						</a>
+					<?php } ?>
+				<?php } ?>
+			</div>
 			<div class="wrapperNewsDay__main-items flex">
-				<a href="" class="wrapperNewsDay__main-item flex">
-					<div class="date-publish">
-						<p>08.08.2018</p>
-					</div>
-					<div class="wrapperNewsDay-title">
-						<p>Политика</p>
-					</div>
-					<div class="wrapperNewsDay-text">
-						<p>Путин подписал указ о том потом шут с котом, да</p>
-					</div>
-					<div class="author">
-						<p>Магомедов З.Р.</p>
-					</div>
-				</a>
-				<a href="" class="wrapperNewsDay__main-item flex">
-					<div class="date-publish">
-						<p>08.08.2018</p>
-					</div>
-					<div class="wrapperNewsDay-title">
-						<p>Политика</p>
-					</div>
-					<div class="wrapperNewsDay-text">
-						<p>Путин подписал указ о том потом шут с котом, да</p>
-					</div>
-					<div class="author">
-						<p>Магомедов З.Р.</p>
-					</div>
-				</a>
-				<a href="" class="wrapperNewsDay__main-item flex">
-					<div class="date-publish">
-						<p>08.08.2018</p>
-					</div>
-					<div class="wrapperNewsDay-title">
-						<p>Политика</p>
-					</div>
-					<div class="wrapperNewsDay-text">
-						<p>Путин подписал указ о том потом шут с котом, да</p>
-					</div>
-					<div class="author">
-						<p>Магомедов З.Р.</p>
-					</div>
-				</a>
-				<a href="" class="wrapperNewsDay__main-item flex">
-					<div class="date-publish">
-						<p>08.08.2018</p>
-					</div>
-					<div class="wrapperNewsDay-title">
-						<p>Политика</p>
-					</div>
-					<div class="wrapperNewsDay-text">
-						<p>Путин подписал указ о том потом шут с котом, да</p>
-					</div>
-					<div class="author">
-						<p>Магомедов З.Р.</p>
-					</div>
-				</a>
-				<a href="" class="wrapperNewsDay__main-item flex">
-					<div class="date-publish">
-						<p>08.08.2018</p>
-					</div>
-					<div class="wrapperNewsDay-title">
-						<p>Политика</p>
-					</div>
-					<div class="wrapperNewsDay-text">
-						<p>Путин подписал указ о том потом шут с котом, да</p>
-					</div>
-					<div class="author">
-						<p>Магомедов З.Р.</p>
-					</div>
-				</a>
-				<a href="" class="wrapperNewsDay__main-item flex">
-					<div class="date-publish">
-						<p>08.08.2018</p>
-					</div>
-					<div class="wrapperNewsDay-title">
-						<p>Политика</p>
-					</div>
-					<div class="wrapperNewsDay-text">
-						<p>Путин подписал указ о том потом шут с котом, да</p>
-					</div>
-					<div class="author">
-						<p>Магомедов З.Р.</p>
-					</div>
-				</a>
-				<a href="" class="wrapperNewsDay__main-item flex">
-					<div class="date-publish">
-						<p>08.08.2018</p>
-					</div>
-					<div class="wrapperNewsDay-title">
-						<p>Политика</p>
-					</div>
-					<div class="wrapperNewsDay-text">
-						<p>Путин подписал указ о том потом шут с котом, да</p>
-					</div>
-					<div class="author">
-						<p>Магомедов З.Р.</p>
-					</div>
-				</a>
-				<a href="" class="wrapperNewsDay__main-item flex">
-					<div class="date-publish">
-						<p>08.08.2018</p>
-					</div>
-					<div class="wrapperNewsDay-title">
-						<p>Политика</p>
-					</div>
-					<div class="wrapperNewsDay-text">
-						<p>Путин подписал указ о том потом шут с котом, да</p>
-					</div>
-					<div class="author">
-						<p>Магомедов З.Р.</p>
-					</div>
-				</a>
-				<a href="" class="wrapperNewsDay__main-item flex">
-					<div class="date-publish">
-						<p>08.08.2018</p>
-					</div>
-					<div class="wrapperNewsDay-title">
-						<p>Политика</p>
-					</div>
-					<div class="wrapperNewsDay-text">
-						<p>Путин подписал указ о том потом шут с котом, да</p>
-					</div>
-					<div class="author">
-						<p>Магомедов З.Р.</p>
-					</div>
-				</a>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto cum minima, quam accusantium impedit officiis sapiente maiores debitis id, numquam tenetur esse repellendus deserunt eaque nulla asperiores eius nemo eos.
 			</div>
 		</div>
     </section>
-    <section>
-    	
-    </section>
+    <?php foreach($categories->fetchAll() as $category){?>
+    	<section>
+			<form action="" method="post">
+				<?php echo "<h1>".$category['name']."</h1>"; ?>
+	    		<?php 
+					$posts = $conn->query('SELECT * FROM posts WHERE categories = "'.$category['id'].'"');
+	    		?>
+	    		<div class="section-wrapper-posts flex">
+		    		<?php foreach($posts->fetchAll() as $post){?>
+						<a href='<?php echo "post.php?id=".$post['id']; ?>' target="_blank" class="wrapperNewsDay__main-item flex">
+							<div class="date-publish">
+								<p><?php echo $post['datetime'] ?></p>
+							</div>
+							<div class="wrapperpostDay-title">
+								<p><?php echo $post['title'] ?></p>
+							</div>
+							<div class="wrapperpostDay-text">
+								<p><?php mb_strimwidth($post['text'], 0, 100, "..."); ?></p>
+							</div>
+							<div class="author">
+								<p><?php echo $post['author'] ?></p>
+							</div>
+						</a>
+		    		<?php } ?>
+		    	</div>
+		    </form>
+	    </section>  
+	<?php } ?>
 </div>
 
 <?php

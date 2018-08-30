@@ -34,14 +34,14 @@ $(function () {
             var results = JSON.parse(e);//"+result['title']+" это означает пересобрать строку дсон в массив чтоб дальше мог с ней нормально работать.
             $('.result-search').empty();
             results.forEach(function(result){
-                $('.result-search').append("<a href='' class='flex ourResult'>\
+                $('.result-search').append("<a href='post.php?id="+result['id']+"' target='_blank' class='flex ourResult count'>\
                     <div class='wrapperNewsDay-title'>"+result['title']+"</div>\
                     <div class='wrap-author-date flex'>\
                         <div class='author'><p>"+result['author']+"</p></div>\
                         <div class='date-publish'><p>"+result['datetime']+"</p></div>\
                     </div>\
                     </a>")
-            })
+                })
             $("#search").addClass("active");
             $(".result-search").addClass("active");
             if ($(".result-search").text() == "" || $("#search").val() == "") {
@@ -59,4 +59,15 @@ $(function () {
             $(".result-search").removeClass("active");
         }
     });
+});
+
+// Табы
+
+$(function() {
+    $(".tabs-posts a").on("click", function(e) {
+        e.preventDefault();
+        $(this)
+            .addClass('active').siblings().removeClass('active')
+            .closest('.wrapperNewsDay__main').find('.wrapperNewsDay__main-items').removeClass('active').eq($(this).index()).addClass('active');
+    })
 });
